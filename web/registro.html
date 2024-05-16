@@ -1,0 +1,35 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autoservicio Popular</title>
+    <link rel="stylesheet" href="./style/registro.css">
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <section id="left" class="section"> 
+        <img src="./assets/image/logo.webp" alt="Logo Autoservicio Popular">
+        <p>Autoservicio Popular, "Calidad y economía a su alcance"</p>
+    </section>
+    <section id="right" class="section"> 
+        <form id="formulario" onsubmit="return false;">
+            <h2>Registrar</h2>
+            <fieldset class="sectionform">
+                <legend>Datos personales</legend>
+                <input type="text" autocomplete="off" placeholder="Nombre y Apellido">
+                <input type="text" autocomplete="off" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="Fecha de nacimiento" onsubmit="return">
+                <input type="number" autocomplete="off" placeholder="Número de identificación">
+            </fieldset>
+            <fieldset id="fieldset2" class="sectionform">
+                <legend>Datos de contacto</legend>
+                <input type="email" autocomplete="off" placeholder="Correo Electrónico">
+                <div>
+                    <input type="tel" autocomplete="off" placeholder="Celular">
+                    <input type="text" autocomplete="off" placeholder="Dirección">
+                </div>
+            </fieldset>
+            <button onclick="alert('bienvenido Onairo')">Siguiente</button>
+        </form>
+    </section>
+</body>
+</html>

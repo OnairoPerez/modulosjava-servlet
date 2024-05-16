@@ -1,0 +1,54 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autoservicio Popular</title>
+    <link rel="stylesheet" href="./style/topBar.css">
+    <link rel="stylesheet" href="./style/carrito.css">
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <main>
+        <nav id="TopBar">
+            <div id="right" class="TopBarElements">
+                <img data-link="" id="logo" src="./assets/image/logo.webp" alt="Logo de la empresa Autoservicio Popular">
+            </div>
+            <div id="center" class="TopBarElements">
+                <input id="SearchInput" type="text" placeholder="Buscar Producto">
+                <button data-link="buscador" id="SearchButton">
+                    <img id="SearchImg" src="./assets/icons/lupa.webp" alt="Lupa color negro">
+                </button>
+            </div>
+            <div id="left" class="TopBarElements">
+                <img data-link="carrito" src="./assets/icons/carrito.webp" class="leftImg" alt="Icono carrito de compras">
+                <img data-link="login" src="./assets/icons/user.webp" class="leftImg" alt="Icono de usuario">
+            </div>
+        </nav>
+        <div id="container" class="flexCenter">
+            <div id="table-left" class="flexCenter tables">
+                <h2>Productos</h2>
+                <div id="table-productos" class="table" >
+                    <div class="headers item-list">
+                        <h4>Nombre</h4>
+                        <h4>Precio/u </h4>
+                        <h4>Cantidad</h4>
+                    </div>
+                </div>
+                <button id="agregar">Realizar pedido</button>
+            </div>
+            <div id="table-right" class="flexCenter tables">
+                <h2>Total</h2>
+                <div id="table-total" class="table">
+                    <div class="headers"></div>
+                </div>
+                <div class="flexCenter val-total">
+                    <span id="valorTotal">$</span>
+                    <span>Total</span>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="./JavaScript/topBar.js"></script>
+    <script src="./JavaScript/carrito.js"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autoservicio Popular</title>
+    <link rel="stylesheet" href="./style/buscador.css">
+    <link rel="stylesheet" href="./style/topBar.css">
+    <link rel="stylesheet" href="./style/fonts.css">
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <nav id="TopBar">
+        <div id="right" class="TopBarElements">
+            <img data-link="" id="logo" src="./assets/image/logo.webp" alt="Logo de la empresa Autoservicio Popular">
+        </div>
+        <div id="center" class="TopBarElements">
+            <input id="SearchInput" type="text" placeholder="Buscar Producto">
+            <button data-link="buscador" id="SearchButton">
+                <img id="SearchImg" src="./assets/icons/lupa.webp" alt="Lupa color negro">
+            </button>
+        </div>
+        <div id="left" class="TopBarElements">
+            <img data-link="carrito" src="./assets/icons/carrito.webp" class="leftImg" alt="Icono carrito de compras">
+            <img data-link="login" src="./assets/icons/user.webp" class="leftImg" alt="Icono de usuario">
+        </div>
+    </nav>
+    <section id="Container">
+        <div id="LeftBar"></div>
+        <div id="Contenido">
+            <div id="Productos"></div>
+            <div id="indice">
+                <button class="buttonInd">◀</button>
+                <button class="buttonInd">1</button>
+                <button class="buttonInd">▶</button>
+            </div>
+        </div>
+    </section>
+    <script src="./JavaScript/topBar.js"></script>
+    <script src="./JavaScript/buscador.js"></script>
+</body>
+
+

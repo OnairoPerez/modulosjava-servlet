@@ -1,0 +1,168 @@
+body {
+    margin: 0px;
+    background: #151515;
+}
+
+#slogan {
+    display: flex;
+
+}
+
+#slogan img {
+    width: 50%;
+    object-fit: cover;
+    clip-path: polygon(0 0%, 100% 0%, 100% 100%, 25% 100%);
+}
+
+#slogan div {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#slogan p, h1 {
+    color: white;
+    margin-left: 20px;
+}
+
+#slogan p {
+    font-size: 20px;
+    margin-top: 0px;
+}
+
+#slogan h1 {
+    color: #B20505;
+    font-size: 50px;
+    width: min-content;
+    text-shadow: rgba(181,5,5,0.9) 0px 0px 39px;
+    z-index: 1;
+}
+
+#categorias {
+    margin-block: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+#categorias h2 {
+    color: white;
+}
+
+#categorias article {
+    position: relative;
+    margin-inline: 4px;
+}
+
+#categorias div{
+    overflow:auto;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+#categorias article div {
+    width: 300px;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+}
+
+#categorias p {
+    font-size: 18px;
+    color: white;
+    position: absolute;
+    left: 12px;
+    bottom: 8px;
+    margin: 0px;
+}
+
+#productos {
+    margin-block: 10px;
+    position: relative;
+    color: white;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#productos div, article {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#productos div:nth-child(2) {
+    flex-direction: row;
+    justify-content: unset;
+    overflow: auto;
+}
+
+#productos div {
+    margin: 10px;
+}
+
+#productos article p {
+    text-align: center;
+    width: 90%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#productos article {
+    height: 260px;
+    width: 200px;
+    background: linear-gradient(90deg, rgb(48, 46, 46) 15%, rgb(28, 28, 28) 100%);
+    border-radius: 20px;
+    margin: 5px;
+}
+
+#productos article img{
+    height: 56%;
+    width: 80%;
+    margin: 10px;
+    border-radius: 10px;
+    object-fit: cover;
+    object-position: center;
+}
+
+#productos article button{
+    width: 100px;
+    height: 30px;
+    border-color: transparent;
+    border-radius: 10px;
+}
+
+#cta {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    flex-wrap: wrap;
+}
+
+#cta img{
+    height: 300px;
+    width: 300px;
+    object-fit: cover;
+    object-position: center;
+}
+
+#cta div {
+    margin-inline: 20px;
+}
+
+#cta p {
+    width: 300px;
+}
