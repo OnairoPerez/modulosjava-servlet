@@ -53,7 +53,7 @@ public class buscador extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("/buscador.html").forward(request, response);
+        request.getRequestDispatcher("/buscador.jsp").forward(request, response);
         //processRequest(request, response);
     }
 

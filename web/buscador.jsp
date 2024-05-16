@@ -1,3 +1,10 @@
+<%-- 
+    Document   : buscador
+    Created on : May 16, 2024, 4:44:50 PM
+    Author     : onairo
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10,21 +17,7 @@
     <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <nav id="TopBar">
-        <div id="right" class="TopBarElements">
-            <img data-link="" id="logo" src="./assets/image/logo.webp" alt="Logo de la empresa Autoservicio Popular">
-        </div>
-        <div id="center" class="TopBarElements">
-            <input id="SearchInput" type="text" placeholder="Buscar Producto">
-            <button data-link="buscador" id="SearchButton">
-                <img id="SearchImg" src="./assets/icons/lupa.webp" alt="Lupa color negro">
-            </button>
-        </div>
-        <div id="left" class="TopBarElements">
-            <img data-link="carrito" src="./assets/icons/carrito.webp" class="leftImg" alt="Icono carrito de compras">
-            <img data-link="login" src="./assets/icons/user.webp" class="leftImg" alt="Icono de usuario">
-        </div>
-    </nav>
+    <jsp:include page="./topbar.jsp"/>
     <section id="Container">
         <div id="LeftBar"></div>
         <div id="Contenido">
@@ -39,5 +32,3 @@
     <script src="./JavaScript/topBar.js"></script>
     <script src="./JavaScript/buscador.js"></script>
 </body>
-
-
