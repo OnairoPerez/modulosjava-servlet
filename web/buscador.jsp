@@ -32,3 +32,4 @@
     <script src="./JavaScript/topBar.js"></script>
     <script src="./JavaScript/buscador.js"></script>
 </body>
+<html/>
