@@ -53,7 +53,7 @@ public class producto extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("/producto.html").forward(request, response);
+        request.getRequestDispatcher("/producto.jsp").forward(request, response);
     }
 
     /**
