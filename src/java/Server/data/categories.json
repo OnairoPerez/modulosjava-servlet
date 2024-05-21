@@ -1,0 +1,33 @@
+[
+    {
+        "name": "Condimentos y especias",
+        "img": "assets/category/spices.webp",
+        "href": "especias"
+    },
+    {
+        "name": "Embutidos",
+        "img": "assets/category/sausage.webp",
+        "href": "embutidos"
+    },
+    {
+        "name": "Bebidas",
+        "img": "assets/category/drinks.webp",
+        "href": "bebidas"
+    },
+    {
+        "name": "Higiene personal",
+        "img": "assets/category/soap.webp",
+        "href": "higiene"
+    },
+    {
+        "name": "Elementos de cocina",
+        "img": "assets/category/knives.webp",
+        "href": "cocina"
+    },
+    {
+        "name": "Papelería",
+        "img": "assets/category/pencils.webp",
+        "href": "papeleria"
+    }
+]
+

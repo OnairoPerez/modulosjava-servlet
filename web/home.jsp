@@ -5,7 +5,36 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<%@page import="Server.DataObject.CategoryData"%>
+<%@page import="Server.DataObject.SearchData"%>
+<%@page import="java.util.Arrays"%>
+<%@page import="java.util.Comparator"%>
+<%@page import="java.io.IOException"%>
+
+<%! CategoryData ctg = new CategoryData(); %>
+<%! 
+    CategoryData[] data;
+    {
+        try{
+            data = ctg.getData();
+        } catch(IOException e) {
+            System.out.println("Error" + e);
+        }
+    }
+%>
+
+<%! SearchData prod = new SearchData(); %>
+<%! 
+    SearchData[] prodList;
+    {
+        try{
+            prodList = prod.getData();
+        } catch(IOException e) {
+            System.out.println("Error" + e);
+        }
+    }
+%>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -35,30 +64,14 @@
         <section id="categorias">
             <h2>Categorias</h2>
             <div>
-                <article>
-                    <div style="background-image: linear-gradient(0deg, rgba(0,0,0,0.8) 30%, rgba(0,0,0,0) 100%), url('assets/category/spices.webp');"></div>
-                    <p>Condimentos y especias</p>
-                </article>
-                <article>
-                    <div style="background-image: linear-gradient(0deg, rgba(0,0,0,0.8) 30%, rgba(0,0,0,0) 100%), url('assets/category/sausage.webp') ;"></div>
-                    <p>Embutidos</p>
-                </article>
-                <article>
-                    <div style="background-image: linear-gradient(0deg, rgba(0,0,0,0.8) 30%, rgba(0,0,0,0) 100%), url('assets/category/drinks.webp');"></div>
-                    <p>Bebidas</p>
-                </article>
-                <article>
-                    <div style="background-image: linear-gradient(0deg, rgba(0,0,0,0.8) 30%, rgba(0,0,0,0) 100%), url('assets/category/soap.webp');"></div>
-                    <p>Higiene personal</p>
-                </article>
-                <article>
-                    <div style="background-image: linear-gradient(0deg, rgba(0,0,0,0.8) 30%, rgba(0,0,0,0) 100%), url('assets/category/knives.webp');"></div>
-                    <p>Elementos de cocina</p>
-                </article>
-                <article>
-                    <div style="background-image: linear-gradient(0deg, rgba(0,0,0,0.8) 30%, rgba(0,0,0,0) 100%), url('assets/category/pencils.webp');"></div>
-                    <p>Papelería</p>
-                </article>
+                <%
+                    for (CategoryData item : data) {
+                        out.println("<article class=\"ctg\">");
+                        out.println("<div style=\"background-image: linear-gradient(0deg, rgba(0,0,0,0.8) 30%, rgba(0,0,0,0) 100%), url(" + item.img+ ");\"></div>");
+                        out.println("<p>" + item.name + "</p>");
+                        out.println("</article>");
+                    }
+                %>
             </div>
         </section>
         <section id="productos">
@@ -72,26 +85,17 @@
                 </p>
             </div>
             <div>
-                <article>
-                    <img src="https://http2.mlstatic.com/D_NQ_NP_760373-MLU73176478205_112023-O.webp" alt="">
-                    <p>Café Sello Rojo 425 Gr</p>
-                    <button> Carrito </button>
-                </article>
-                <article>
-                    <img src="https://http2.mlstatic.com/D_NQ_NP_735519-MCO45196786941_032021-O.webp" alt="">
-                    <p>Arroz Diana Arroba 25 libras</p>
-                    <button> Carrito </button>
-                </article>
-                <article>
-                    <img src="https://http2.mlstatic.com/D_NQ_NP_682348-MCO73906928771_012024-O.webp" alt="">
-                    <p>Lomo Atun Zenu En Agua X 160 Gr</p>
-                    <button> Carrito </button>
-                </article>
-                <article>
-                    <img src="https://http2.mlstatic.com/D_NQ_NP_806577-MCO41630168011_052020-O.webp" alt="">
-                    <p>Gomitas Trululu Aros Bolsa X 100 Und</p>
-                    <button> Carrito </button>
-                </article>
+                <%
+                    Arrays.sort(prodList, Comparator.comparingInt(SearchData::getPurchased).reversed());
+                    SearchData[] top = Arrays.copyOf(prodList, 5);
+                    for (SearchData item : top) {
+                        out.println("<article>");
+                        out.println("<img src="+ item.img + " alt=\"" + item.nombre + "\">");
+                        out.println("<p>"+ item.nombre +"</p>");
+                        out.println("<button> Carrito </button>");
+                        out.println("</article>");
+                    }
+                %>
             </div>
         </section>
         <section id="cta">
