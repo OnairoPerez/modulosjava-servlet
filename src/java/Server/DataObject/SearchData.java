@@ -21,6 +21,7 @@ public class SearchData {
     public int existencias;
     public String categoria;
     public String marca;
+    public int purchased;
     public String img;
     
     private SearchData[] dataObject;
@@ -38,5 +39,8 @@ public class SearchData {
             brandes.add(item.marca);
         }
         return brandes;
+    }
+    public int getPurchased() {
+        return purchased;
     }
 }

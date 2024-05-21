@@ -2,9 +2,10 @@
     {
         "codigo": "",
         "nombre": "",
-        "precio": "",
-        "existencias": "",
+        "precio": 0,
+        "existencias": 0,
         "categoria": "",
+        "purchased" : 0,
         "marca": ""
     },
     {
@@ -14,6 +15,7 @@
         "existencias": 20,
         "categoria": "grano",
         "marca": "Flor Huila",
+        "purchased" : 6,
         "img": "https://http2.mlstatic.com/D_NQ_NP_730135-MCO45374244479_032021-O.webp"
     },
     {
@@ -23,6 +25,7 @@
         "existencias": 100,
         "categoria": "grano",
         "marca": "Flor Huila",
+        "purchased" : 42,
         "img": "https://http2.mlstatic.com/D_NQ_NP_842522-MCO68924089972_042023-O.webp"
     },
     {
@@ -32,6 +35,7 @@
         "existencias": 10,
         "categoria": "grano",
         "marca": "Diana",
+        "purchased" : 3,
         "img": "https://http2.mlstatic.com/D_NQ_NP_844337-MCO47612726650_092021-O.webp"
     },
     {
@@ -41,6 +45,7 @@
         "existencias": 100,
         "categoria": "grano",
         "marca": "Diana",
+        "purchased" : 24,
         "img": "https://http2.mlstatic.com/D_NQ_NP_827662-MCO52592339598_112022-O.webp"
     },
     {
@@ -50,6 +55,7 @@
         "existencias": 10,
         "categoria": "grano",
         "marca": "Diana",
+        "purchased" : 17,
         "img": "https://http2.mlstatic.com/D_NQ_NP_650438-MCO43103671929_082020-O.webp"
     },
     {
@@ -59,6 +65,7 @@
         "existencias": 100,
         "categoria": "grano",
         "marca": "Roa",
+        "purchased" : 31,
         "img": "https://http2.mlstatic.com/D_NQ_NP_914644-MCO68924089968_042023-O.webp"
     },
     {
@@ -68,6 +75,7 @@
         "existencias": 20,
         "categoria": "grano",
         "marca": "Roa",
+        "purchased" : 8,
         "img": "https://http2.mlstatic.com/D_NQ_NP_779997-MLA50150460669_052022-O.webp"
     },
     {
@@ -77,6 +85,7 @@
         "existencias": 100,
         "categoria": "grano",
         "marca": "Roa",
+        "purchased" : 39,
         "img": "https://http2.mlstatic.com/D_NQ_NP_908021-MCO54794410205_042023-O.webp"
     },
     {
@@ -86,6 +95,7 @@
         "existencias": 200,
         "categoria": "grano",
         "marca": "Roa",
+        "purchased" : 27,
         "img": "https://http2.mlstatic.com/D_NQ_NP_795855-MCO54798408160_042023-O.webp"
     }
 ]
