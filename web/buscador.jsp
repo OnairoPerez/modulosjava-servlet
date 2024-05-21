@@ -5,6 +5,26 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="Server.DataObject.SearchData"%>
+<%@page import="java.util.Set"%>
+<%@page import="Server.DataObject.LocalPrice"%>
+<%@page import="java.io.IOException"%>
+
+
+<%! SearchData prod = new SearchData(); %>
+<%! LocalPrice localPrice = new LocalPrice(); %>
+<%! 
+    SearchData[] data; 
+    {
+        try{
+            data = prod.getData();
+        } catch(IOException e) {
+            System.out.println("Error" + e);
+        }
+    }
+%>
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -19,9 +39,45 @@
 <body>
     <jsp:include page="./topbar.jsp"/>
     <section id="Container">
-        <div id="LeftBar"></div>
+        <div id="LeftBar">
+            <div id="Marca" class="Options">
+                <h4>Marca</h4>
+                <hr>
+                <% 
+                    Set<String> brandes = prod.getBrandes();
+                    for (String brand : brandes) {
+                        out.println("<button>" + brand + "</button>");
+                    }
+                %>
+            </div>
+            <div id="Ordenar" class="Options">
+                <h4>Ordenar</h4>
+                <hr>
+                <% 
+                    String[] order = {"Precio ▲️", "Precio ▼", "Más comprado"};
+                    for (String item : order) {
+                        out.println("<button>" + item + "</button>");
+                    }
+                %>
+            </div>
+            <div class="space"></div>
+        </div>
         <div id="Contenido">
-            <div id="Productos"></div>
+            <div id="Productos">
+                <%
+                    for (SearchData item : data ) {
+                        String price = localPrice.colombia(item.precio);
+                        
+                        out.println("<div class=\"ProdList\">");
+                        out.println("<div><img src=" + item.img + "></div>");
+                        out.println("<div class=\"TextList\">");
+                        out.println("<a href=\"\">" + item.nombre + "</a>");
+                        out.println("<p>" + price + "</p>");
+                        out.println("</div>");
+                        out.println("</div>");
+                    }
+                %>
+            </div>
             <div id="indice">
                 <button class="buttonInd">◀</button>
                 <button class="buttonInd">1</button>
@@ -30,6 +86,5 @@
         </div>
     </section>
     <script src="./JavaScript/topBar.js"></script>
-    <script src="./JavaScript/buscador.js"></script>
 </body>
 <html/>
