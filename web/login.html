@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -14,13 +15,14 @@
     </section>
     <section id="right" class="section"> 
         <img src="./assets/image/user.webp" alt="">
-        <div id="container">
-            <input type="text" id="correo" placeholder="Correo Electrónico">
-            <input type="password" id="password" placeholder="Contraseña">
-            <button>Ingresar</button>
+        <form id="container" action="/WebServer/login" method="POST">
+            <input name="email" type="email" placeholder="Correo Electrónico" required>
+            <input name="password" type="password" placeholder="Contraseña" required>
+            <button type="submit">Ingresar</button>
             <a href="">Olvidé mi contraseña</a>
             <a href="./registro">Registrarce</a>
-        </div>
+        </form>
     </section>
+    <script src="./JavaScript/auth.js"></script>
 </body>
 </html>

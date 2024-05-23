@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
+import Server.DataObject.UserAccount;
 /**
  *
  * @author onairo
@@ -66,7 +67,23 @@ public class login extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
+        
+        UserAccount accounts = new UserAccount();
+        UserAccount[] userAccounts = accounts.getData();
+        UserAccount userData = null;
+        String textResponse = "{ \"verify\" : false }";
+        
+        for (UserAccount user : userAccounts) {
+            if(email.equals(user.email) && password.equals(user.password)) {
+                userData = user;
+                textResponse = "{ \"verify\" : true }";
+            }
+        }
+
+        response.setContentType("application/json");
+        response.getWriter().write(textResponse);
     }
 
     /**
