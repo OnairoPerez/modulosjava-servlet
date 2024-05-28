@@ -9,6 +9,8 @@ import java.io.PrintWriter;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 
+import Server.DataObject.UserInfo;
+
 /**
  *
  * @author onairo
@@ -67,7 +69,25 @@ public class registro extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String name = request.getParameter("name");
+        String birthdate = request.getParameter("birthdate");
+        String cc = request.getParameter("cc");
+        String email = request.getParameter("email");
+        String phone = request.getParameter("phone");
+        String direction = request.getParameter("direction");
+        String emailAccount = request.getParameter("emailAccount");
+        String password = request.getParameter("passwordAccount");
+        
+        UserInfo user = new UserInfo(name, birthdate, cc, email, phone, direction);
+        String value = user.saveData(user);
+        
+        String textResponse = "{ \"registered\" : false }";
+        if ("done".equals(value)) {
+            textResponse = "{ \"registered\" : true }";
+        }
+        
+        response.setContentType("application/json");
+        response.getWriter().write(textResponse);
     }
 
     /**

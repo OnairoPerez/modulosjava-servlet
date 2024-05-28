@@ -15,8 +15,11 @@ import java.io.File;
  */
 public class JsonReader<T> {
     private final String pathJson = "/home/onairo/Documents/Proyectos/NetBeansProjects/WebServer/src/java/Server/data/";
+    public String getPathFile(String jsonFileName) {
+        return pathJson + jsonFileName;
+    }
     public T[] getData(Class<T[]> valueType, String jsonFileName) throws IOException {
-        String jsonFilePath = pathJson + jsonFileName;
+        String jsonFilePath = getPathFile(jsonFileName);
         ObjectMapper objectMapper = new ObjectMapper();
         return objectMapper.readValue(new File(jsonFilePath), valueType);
     }

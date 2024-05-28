@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -12,24 +13,41 @@
         <p>Autoservicio Popular, "Calidad y economía a su alcance"</p>
     </section>
     <section id="right" class="section"> 
-        <form id="formulario" onsubmit="return false;">
+        <form id="formulario" action="" method="POST">
             <h2>Registrar</h2>
-            <fieldset class="sectionform">
+            <fieldset class="sectionform info">
                 <legend>Datos personales</legend>
-                <input type="text" autocomplete="off" placeholder="Nombre y Apellido">
-                <input type="text" autocomplete="off" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="Fecha de nacimiento" onsubmit="return">
-                <input type="number" autocomplete="off" placeholder="Número de identificación">
+                <input type="text" name="name" form="formulario" autocomplete="off" placeholder="Nombre y Apellido">
+                <input type="text" name="birthdate" form="formulario" autocomplete="off" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="Fecha de nacimiento" onsubmit="return">
+                <input type="number" name="cc" form="formulario" autocomplete="off" placeholder="Número de identificación">
             </fieldset>
-            <fieldset id="fieldset2" class="sectionform">
+            <fieldset id="fieldset2" class="sectionform info">
                 <legend>Datos de contacto</legend>
-                <input type="email" autocomplete="off" placeholder="Correo Electrónico">
+                <input type="email" name="email" form="formulario" autocomplete="off" placeholder="Correo Electrónico">
                 <div>
-                    <input type="tel" autocomplete="off" placeholder="Celular">
-                    <input type="text" autocomplete="off" placeholder="Dirección">
+                    <input type="tel" name="phone" form="formulario" autocomplete="off" placeholder="Celular">
+                    <input type="text" name="direction" form="formulario" autocomplete="off" placeholder="Dirección">
                 </div>
             </fieldset>
-            <button onclick="alert('bienvenido Onairo')">Siguiente</button>
+            <button class="info display" type="button">Siguiente</button>
+            <button id="return" class="account display" type="button" style="display: none;">
+                <svg  xmlns="http://www.w3.org/2000/svg"  width="30"  height="30"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-back-up"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 14l-4 -4l4 -4" /><path d="M5 10h11a4 4 0 1 1 0 8h-1" /></svg>
+            </button>
+            <fieldset class="sectionform account" style="display: none;">
+                <legend>Crear cuenta</legend>
+                <input type="email" name="emailAccount" form="formulario" autocomplete="off" placeholder="Correo Elctrónico" style="margin-bottom: 15px;">
+                <div id="password">
+                    <input type="password" name="passwordAccount" form="formulario" autocomplete="off" placeholder="Contraseña">
+                    <button id="eye" type="button">
+                        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-eye"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /><path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" /></svg>
+                    </button>
+                </div>
+                <input type="password" autocomplete="off" placeholder="Confirmar contraseña">
+            </fieldset>
+            <button class="account" type="submit" style="display: none;">Registrarce</button>
         </form>
     </section>
+    <script src="./JavaScript/registro.js"></script>
+    <<script src="./JavaScript/reg.js"></script>
 </body>
 </html>
