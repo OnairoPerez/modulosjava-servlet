@@ -10,6 +10,7 @@ import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 
 import Server.DataObject.UserInfo;
+import Server.DataObject.UserAccount;
 
 /**
  *
@@ -79,10 +80,13 @@ public class registro extends HttpServlet {
         String password = request.getParameter("passwordAccount");
         
         UserInfo user = new UserInfo(name, birthdate, cc, email, phone, direction);
-        String value = user.saveData(user);
+        UserAccount account = new UserAccount(emailAccount, password);
+        
+        String valueUser = user.saveData(user);
+        String valueAccount = account.saveData(account);
         
         String textResponse = "{ \"registered\" : false }";
-        if ("done".equals(value)) {
+        if ("done".equals(valueUser) && "done".equals(valueAccount)) {
             textResponse = "{ \"registered\" : true }";
         }
         

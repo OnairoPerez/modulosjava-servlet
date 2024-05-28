@@ -1,18 +1,21 @@
-[ 
-    {
-        "name" : "",
-        "birthdate" : "",
-        "cc" : "",
-        "email" : "",
-        "phone" : "",
-        "direction" : ""
-    },
-    {
-        "name" : "Jhon Pérez",
-        "birthdate" : "2000-01-20",
-        "cc" : "58000000",
-        "email" : "john.doe@example.com",
-        "phone" : "67890",
-        "direction" : "Barrio El centro"
-    }   
-]
+[ {
+  "name" : "Jane Smith",
+  "birthdate" : "1990-07-10",
+  "cc" : "58100000",
+  "email" : "jane.smith@example.com",
+  "phone" : "645321",
+  "direction" : "Barrio El centro"
+}, {
+  "name" : "Jhon Pérez",
+  "birthdate" : "2000-01-20",
+  "cc" : "58000000",
+  "email" : "john.doe@example.com",
+  "phone" : "67890",
+  "direction" : "Barrio El centro"
+}, {
+  "name" : "Onairo Pérez",
+  "birthdate" : "2005-03-10",
+  "cc" : "1234567890",
+  "email" : "example@email.com",
+  "phone" : "654321",
+  "direction" : "Barrio El centro"}]
