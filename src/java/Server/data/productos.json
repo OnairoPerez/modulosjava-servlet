@@ -1,14 +1,5 @@
 [
     {
-        "codigo": "",
-        "nombre": "",
-        "precio": 0,
-        "existencias": 0,
-        "categoria": "",
-        "purchased" : 0,
-        "marca": ""
-    },
-    {
         "codigo": "eNm6it0fhO",
         "nombre": "Arroz Florhuila X 10 Kilogramos",
         "precio": 50000,

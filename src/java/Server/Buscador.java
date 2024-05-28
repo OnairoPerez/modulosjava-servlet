@@ -8,11 +8,12 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
+
 /**
  *
  * @author onairo
  */
-public class login extends HttpServlet {
+public class Buscador extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,16 +32,15 @@ public class login extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet login</title>");            
+            out.println("<title>Servlet buscador</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet login at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet buscador at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -51,8 +51,8 @@ public class login extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        request.getRequestDispatcher("/login.html").forward(request, response);
+            throws ServletException, IOException {   
+        request.getRequestDispatcher("/buscador.jsp").forward(request, response);
     }
 
     /**
@@ -77,6 +77,5 @@ public class login extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "Short description";
-    }// </editor-fold>
-
+    }
 }

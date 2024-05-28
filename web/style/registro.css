@@ -2,7 +2,8 @@ body {
     background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(46,18,18,1) 35%, rgba(181,5,5,1) 100%);
     display: flex;
     flex-direction: row;
-    height: 100%;
+    width: 100%;
+    height: 100vh;
     margin: 0px;
 }
 
@@ -35,15 +36,30 @@ body {
     align-items: center;
     background-color: #302E2E;
     border-radius: 20px;
-    height: 70%;
-    width: 80%;
+    min-height: 75%;
+    max-height: 90%;
+    height: auto;
+    width: 409px;
     color: white;
     font-family: "Roboto", sans-serif;
     font-weight: 500;
     font-style: normal;
+    overflow: hidden;
+    position: relative;
+}
+
+#return {
+    height: 50px !important;
+    width: 50px !important;
+    position: absolute;
+    left: 20px;
+    bottom: 10px;
 }
 
 #formulario button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 40px;
     width: 40%;
     border-radius: 10px;
@@ -54,6 +70,7 @@ body {
     font-family: "Roboto", sans-serif;
     font-weight: 700;
     font-style: normal;
+    margin-bottom: 10px;
 }
 
 .sectionform {
@@ -66,12 +83,31 @@ body {
 
 .sectionform input {
     margin-block: 3px;
-    height: 30px;
+    height: 40px;
     border-radius: 10px;
     border-color: transparent;
     background-color: #D9D9D9;
     font-size: medium;
     text-align: center;
+}
+
+#password, #password input {
+    width: 100%;
+    position: relative;
+}
+
+#password input {
+    box-sizing: border-box;
+    height: 46px;
+}
+
+#password button {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 10px;
+    right: 8px;
+    padding: 0px;
 }
 
 .sectionform input ::placeholder {
@@ -88,7 +124,7 @@ body {
 }
 
 #fieldset2 > div:nth-child(3) > input {
-    width: 49%;
+    width: 47%;
 }
 
 input[type="number"] {

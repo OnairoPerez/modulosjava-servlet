@@ -8,12 +8,12 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
-
+import Server.DataObject.UserAccount;
 /**
  *
  * @author onairo
  */
-public class producto extends HttpServlet {
+public class Login extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -24,24 +24,7 @@ public class producto extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet producto</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet producto at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-    }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -53,7 +36,7 @@ public class producto extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("/producto.jsp").forward(request, response);
+        request.getRequestDispatcher("/login.html").forward(request, response);
     }
 
     /**
@@ -67,7 +50,23 @@ public class producto extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
+        
+        UserAccount accounts = new UserAccount();
+        UserAccount[] userAccounts = accounts.getData();
+        UserAccount userData = null;
+        String textResponse = "{ \"verify\" : false }";
+        
+        for (UserAccount user : userAccounts) {
+            if(email.equals(user.email) && password.equals(user.password)) {
+                userData = user;
+                textResponse = "{ \"verify\" : true }";
+            }
+        }
+
+        response.setContentType("application/json");
+        response.getWriter().write(textResponse);
     }
 
     /**

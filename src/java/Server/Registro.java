@@ -5,15 +5,18 @@
 package Server;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
+
+import Server.DataObject.UserInfo;
+import Server.DataObject.UserAccount;
+import Server.DataObject.JsonWriter;
 
 /**
  *
  * @author onairo
  */
-public class registro extends HttpServlet {
+public class Registro extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -24,24 +27,7 @@ public class registro extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet registro</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet registro at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-    }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -67,7 +53,31 @@ public class registro extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String name = request.getParameter("name");
+        String birthdate = request.getParameter("birthdate");
+        String cc = request.getParameter("cc");
+        String email = request.getParameter("email");
+        String phone = request.getParameter("phone");
+        String direction = request.getParameter("direction");
+        String emailAccount = request.getParameter("emailAccount");
+        String password = request.getParameter("passwordAccount");
+        
+        UserInfo user = new UserInfo(name, birthdate, cc, email, phone, direction);
+        UserAccount account = new UserAccount(emailAccount, password);
+        
+        JsonWriter<UserInfo> userData = new JsonWriter<>();
+        JsonWriter<UserAccount> userAccount = new JsonWriter<>();
+        
+        String valueUser = userData.saveData(UserInfo.class, user, "user_info.json");
+        String valueAccount = userAccount.saveData(UserAccount.class, account, "user_account.json");
+        
+        String textResponse = "{ \"registered\" : false }";
+        if ("done".equals(valueUser) && "done".equals(valueAccount)) {
+            textResponse = "{ \"registered\" : true }";
+        }
+        
+        response.setContentType("application/json");
+        response.getWriter().write(textResponse);
     }
 
     /**
