@@ -9,14 +9,12 @@ import java.io.PrintWriter;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 
-import Server.DataObject.UserInfo;
-import Server.DataObject.UserAccount;
 
 /**
  *
  * @author onairo
  */
-public class registro extends HttpServlet {
+public class Home extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,16 +33,15 @@ public class registro extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet registro</title>");            
+            out.println("<title>Servlet home</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet registro at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet home at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -56,7 +53,7 @@ public class registro extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("/registro.html").forward(request, response);
+        request.getRequestDispatcher("/home.jsp").forward(request, response);
     }
 
     /**
@@ -70,28 +67,7 @@ public class registro extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String name = request.getParameter("name");
-        String birthdate = request.getParameter("birthdate");
-        String cc = request.getParameter("cc");
-        String email = request.getParameter("email");
-        String phone = request.getParameter("phone");
-        String direction = request.getParameter("direction");
-        String emailAccount = request.getParameter("emailAccount");
-        String password = request.getParameter("passwordAccount");
-        
-        UserInfo user = new UserInfo(name, birthdate, cc, email, phone, direction);
-        UserAccount account = new UserAccount(emailAccount, password);
-        
-        String valueUser = user.saveData(user);
-        String valueAccount = account.saveData(account);
-        
-        String textResponse = "{ \"registered\" : false }";
-        if ("done".equals(valueUser) && "done".equals(valueAccount)) {
-            textResponse = "{ \"registered\" : true }";
-        }
-        
-        response.setContentType("application/json");
-        response.getWriter().write(textResponse);
+        processRequest(request, response);
     }
 
     /**

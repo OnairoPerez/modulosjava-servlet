@@ -4,9 +4,7 @@
  */
 package Server.DataObject;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
-import java.io.File;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,7 +12,7 @@ import java.util.Set;
  *
  * @author onairo
  */
-public class SearchData {
+public class SearchData extends JsonReader <SearchData> {
     public String codigo;
     public String nombre;
     public int precio;
@@ -27,11 +25,8 @@ public class SearchData {
     private SearchData[] dataObject;
     private Set<String> brandes = new HashSet<>();
     
-    public SearchData[] getData() throws IOException {
-        ObjectMapper objectMapper = new ObjectMapper();
-        String pathJson = "/home/onairo/Documents/Proyectos/NetBeansProjects/WebServer/src/java/Server/data/productos.json";
-        dataObject = objectMapper.readValue(new File(pathJson), SearchData[].class);
-        
+    public SearchData[] getData() throws IOException { 
+        dataObject = getData(SearchData[].class, "productos.json");
         return dataObject;
     }
     public Set<String> getBrandes() {

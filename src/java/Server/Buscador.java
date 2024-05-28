@@ -13,7 +13,7 @@ import jakarta.servlet.http.*;
  *
  * @author onairo
  */
-public class producto extends HttpServlet {
+public class Buscador extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,16 +32,15 @@ public class producto extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet producto</title>");            
+            out.println("<title>Servlet buscador</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet producto at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet buscador at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -52,8 +51,8 @@ public class producto extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        request.getRequestDispatcher("/producto.jsp").forward(request, response);
+            throws ServletException, IOException {   
+        request.getRequestDispatcher("/buscador.jsp").forward(request, response);
     }
 
     /**
@@ -78,6 +77,5 @@ public class producto extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "Short description";
-    }// </editor-fold>
-
+    }
 }
